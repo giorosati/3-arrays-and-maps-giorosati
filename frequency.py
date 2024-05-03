@@ -18,8 +18,29 @@ import json
 # Your solution may use string & file functions.
 # Hint: see https://www.techiedelight.com/remove-punctuations-string-python/
 def word_frequencies(filename):
-    d = {}
-    # FIXME
+    d = {}  # crate empty dictionary
+    punctuation_and_numbers = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~0123456789"
+    # spaces = len(punctuation_and_numbers)
+    # spaces_string = ""
+    # for i in range(spaces):
+    #     spaces_string = spaces_string + " "
+
+    # replacement_table = str.maketrans('', spaces_string, punctuation_and_numbers)
+    
+    # load file
+    with open(filename, 'r') as file:
+        for line in file:
+            words = line.split()        # read each word
+            for word in words:
+                word = word.lower()     # make all letters lowercase
+                word.replace("'", "")   # remove apostrophes
+                for character in punctuation_and_numbers:
+                    word = word.replace(character, " ")
+                # word = word.translate(replacement_table) # replace punctuation and numbers with a space
+                if word in d:           # if word is already in the dictionary increment count
+                    d[word] += 1   
+                else:               # if word not in dictionary, add it and set count to 1
+                    d[word] = 1
     return d
 
 def print_map_by_value(map):
