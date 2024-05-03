@@ -1,7 +1,7 @@
 # MODIFY ME TO IMPLEMENT YOUR SOLUTION
 # TO PROBLEM 1: Word Frequency
 #
-# NAME:         FIXME
+# NAME:         Giovanni ROsati
 # ASSIGNMENT:   Project 3: Arrays & Maps
 
 from operator import itemgetter
