@@ -1,7 +1,7 @@
 # MODIFY ME TO IMPLEMENT YOUR SOLUTION
 # TO PROBLEM 2: MULTIPLICATION TABLE
 #
-# NAME:         FIXME
+# NAME:         Giovanni Rosati
 # ASSIGNMENT:   Project 3: Arrays & Maps
 
 # Write a function called multiplication_table that
@@ -10,7 +10,7 @@
 # table scaled by the scaling factor.
 # You should not be using any functions other than range.
 def multiplication_table(w, h, s):
-    # FIXME
+    # populate values in column 1 and row 1
     return [ [ 0 for i in range(w)] for i in range(h)]
 
 def print_2D(b):
