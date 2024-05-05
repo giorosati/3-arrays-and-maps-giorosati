@@ -1,7 +1,7 @@
 # MODIFY ME TO IMPLEMENT YOUR SOLUTION
 # TO PROBLEM 3: DID I WIN TIC-TAC-TOE?
 #
-# NAME:         FIXME
+# NAME:         Giovanni Rosati
 # ASSIGNMENT:   Project 3: Arrays & Maps
 
 # takes a player character and a 2-dimensional
