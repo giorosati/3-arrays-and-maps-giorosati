@@ -10,7 +10,7 @@
 # table scaled by the scaling factor.
 # You should not be using any functions other than range.
 def multiplication_table(w, h, s):
-    # populate values in column 1 and row 1
+    # populate values in column 0 and row 0
     return [ [ 0 for i in range(w)] for i in range(h)]
 
 def print_2D(b):

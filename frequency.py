@@ -20,49 +20,31 @@ import json
 
 punctuation_and_numbers = "—!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~0123456789"
 
-# def preprocess_word(word):
-#     word = word.lower()
-#     word = word.replace("'", "")   # remove apostrophes
-#     translator = str.maketrans(punctuation_and_numbers, " " * len(punctuation_and_numbers))
-#     word = word.translate(translator)
-#     word = word.strip()
-#     return word
-
-
 def preprocess_word(word):
-    # print("Original:", word)
     word = word.lower()
     word = word.replace("'", "") 
     if "(" in word or ")" in word:
-        # print("Original:", word)
         word = word.replace("(", "").replace(")", "")
-        # print("Processed:", word)
         word = word.strip()
         if not word: return " "
     for char in punctuation_and_numbers:
         word = word.replace(char, " ")
     word = word.strip()  
-    # print("Processed:", word)
     return word
 
 def word_frequencies(filename):
-    d = {}  # crate empty dictionary    
-    # load file
+    d = {}  # create empty dictionary    
     with open(filename, 'r') as file:
         for line in file:
             words = line.split()        # read each word
-            # print(words)
             if words:
                 for word in words:
-                    # Split hyphenated words
-                    # print("Original word: ", word)
-                    if "-" in word or "—" in word:
+                    if "-" in word or "—" in word:  # Split hyphenated words
                         subwords = word.split("-")
                         subwords = [subword.split("—") for subword in subwords]
                         subwords = [item for subitem in subwords for item in subitem]
                         for subword in subwords:
                             processed_subword = preprocess_word(subword)  # Process each 
-                            # print("Processed word: ", processed_subword)
                             if processed_subword and processed_subword.strip() != "":
                                 if processed_subword in d:           # if word is already in the dictionary increment count
                                     d[processed_subword] += 1   
@@ -70,13 +52,11 @@ def word_frequencies(filename):
                                     d[processed_subword] = 1
                     else:
                         word = preprocess_word(word)
-                        # print("Processed word: ", word)
                         if word and word.strip() != "":
                             if word in d:           # if word is already in the dictionary increment count
                                 d[word] += 1   
                             else:               # if word not in dictionary, add it and set count to 1
                                 d[word] = 1
-    # print(d)
     return d
 
 def print_map_by_value(map):
