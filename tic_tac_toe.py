@@ -9,8 +9,63 @@
 # player won the game
 # HINT: What does a boolean accumulator look like?
 def did_I_win_2D(player, board):
-    # FIXME
-    return False
+    # check that rows and columns are both = 3
+    if len(board) != 3: return False
+    if len(board[1]) != 3: return False
+
+    did_win = True
+    
+    # check for player in all columns of each row
+    for column in range(3):
+        did_win = True
+        # print("checking column: ",column)
+        for row in range(3):
+            did_win &= player == board[row][column]
+        if did_win == True: 
+            print(player, " won with a column")
+            return did_win
+    
+    # check for player in all rows of each column
+    for row in range(3):
+        did_win = True
+        # print("checking row: ", row)
+        for column in range(3):
+            test = board[row][column]
+            did_win &= player == board[row][column]
+        if did_win == True:
+            print(player, " won with a row")
+            return did_win
+
+    # check for player on down-to-right diagonal
+    did_win = True
+    for i in range(3):
+        did_win &= player == board[i][i]
+    if did_win == True: 
+        print(player, " won with a down-to-right diagonal")
+        return did_win
+
+    # check for player on up-to-right diagonal
+    sequence = [[0,2],[1,1],[2,0]]
+    did_win = True
+    for pair in sequence:
+        test = board[row][column]
+        did_win &= player == board [pair[0]][pair[1]]
+    if did_win == True:
+        print(player, " won with a up-to-right diagonal")
+        return did_win
+    
+    # if did_win never passes True
+    return did_win
+
+# from earlier work:
+# def did_I_win_down(player, board):
+#     for column in range(3):
+#         did_win = True
+#         for row in range(3):
+#             # place_test = player == board[row][column]
+#             did_win &= player == board[row][column]
+#         if did_win == True: return did_win
+#     return did_win
 
 def print_2D_board(b):
     for i in range(len(b)):
