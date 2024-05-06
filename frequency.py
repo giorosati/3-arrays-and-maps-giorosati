@@ -46,7 +46,7 @@ def word_frequencies(filename):
                         for subword in subwords:
                             processed_subword = preprocess_word(subword)  # Process each 
                             if processed_subword and processed_subword.strip() != "":
-                                if processed_subword in d:           # if word is already in the dictionary increment count
+                                if processed_subword in d:           # if word is already in the dictionary, increment count
                                     d[processed_subword] += 1   
                                 else:               # if word not in dictionary, add it and set count to 1
                                     d[processed_subword] = 1

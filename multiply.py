@@ -13,7 +13,6 @@ def multiplication_table(w, h, s):
     if w == 0 or h == 0:
         return None
     else: 
-        print("else triggered")
         table = []
         for i in range(1,h+1):
             row = []
